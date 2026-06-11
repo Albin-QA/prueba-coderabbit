@@ -15,14 +15,26 @@
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
         }
+        
         #shape {
             width: 150px;
             height: 150px;
             background-color: #3498db;
-            border-radius: 50%;
-            transition: all 0.3s ease;
             margin-bottom: 30px;
+            transition: all 0.3s ease;
         }
+        .circle { border-radius: 50%; }
+        .square { border-radius: 0; }
+        .rectangle { width: 250px !important; border-radius: 0; }
+        .triangle {
+            width: 0 !important;
+            height: 0 !important;
+            background-color: transparent !important;
+            border-left: 75px solid transparent;
+            border-right: 75px solid transparent;
+            border-bottom: 150px solid #3498db;
+        }
+
         .buttons {
             display: flex;
             gap: 15px;
@@ -37,28 +49,39 @@
             color: white;
             transition: background-color 0.2s;
         }
-        button:hover {
-            background-color: #1a252f;
-        }
+        button:hover { background-color: #1a252f; }
     </style>
 </head>
 <body>
 
-    <div id="shape"></div>
+    <div id="shape" class="circle"></div>
     
     <div class="buttons">
         <button id="btn-color">Cambiar Color</button>
+        <button id="btn-shape">Cambiar Forma</button>
     </div>
 
     <script>
         const shape = document.getElementById('shape');
         const btnColor = document.getElementById('btn-color');
+        const btnShape = document.getElementById('btn-shape');
 
         const colors = ['#e74c3c', '#2ecc71', '#f1c40f', '#9b59b6', '#e67e22', '#3498db'];
+        const shapes = ['circle', 'square', 'rectangle', 'triangle'];
 
         btnColor.addEventListener('click', () => {
             const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            shape.style.backgroundColor = randomColor;
+            if(!shape.classList.contains('triangle')){
+                shape.style.backgroundColor = randomColor;
+            } else {
+                shape.style.borderBottomColor = randomColor;
+            }
+        });
+
+        btnShape.addEventListener('click', () => {
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            shape.className = '';
+            shape.classList.add(randomShape);
         });
     </script>
 </body>
