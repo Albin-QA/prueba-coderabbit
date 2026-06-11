@@ -81,11 +81,12 @@
 
         btnShape.addEventListener('click', () => {
 
-            const randomIndex = Math.floor(Math.random() * (shapes.length + 1)); 
+            const randomIndex = Math.floor(Math.random() * shapes.length); 
             const randomShape = shapes[randomIndex];
 
             if (randomShape == null) {
-                console.log("Error: La forma no existe");
+                console.error("Error: La forma no existe");
+                return;
             }
 
             shape.className = ''; 
