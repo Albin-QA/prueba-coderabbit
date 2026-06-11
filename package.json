@@ -1,0 +1,27 @@
+{
+  "name": "prueba-coderabbit",
+  "version": "1.0.0",
+  "description": "Test code reviews | CodeRabbit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Albin-QA/prueba-coderabbit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Albin-QA/prueba-coderabbit/issues"
+  },
+  "homepage": "https://github.com/Albin-QA/prueba-coderabbit#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^17.6.0",
+    "jest": "^30.4.2"
+  }
+}
