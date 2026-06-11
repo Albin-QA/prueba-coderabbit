@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeRabbit Test App</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #shape {
+            width: 150px;
+            height: 150px;
+            background-color: #3498db;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #2c3e50;
+            color: white;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #1a252f;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="shape"></div>
+    
+    <div class="buttons">
+        <button id="btn-color">Cambiar Color</button>
+    </div>
+
+    <script>
+        const shape = document.getElementById('shape');
+        const btnColor = document.getElementById('btn-color');
+
+        const colors = ['#e74c3c', '#2ecc71', '#f1c40f', '#9b59b6', '#e67e22', '#3498db'];
+
+        btnColor.addEventListener('click', () => {
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            shape.style.backgroundColor = randomColor;
+        });
+    </script>
+</body>
+</html>
