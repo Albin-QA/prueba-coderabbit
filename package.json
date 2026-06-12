@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Test code reviews | CodeRabbit",
   "main": "index.js",
-"scripts": {
+  "scripts": {
     "test": "echo \"No hay pruebas configuradas aún\" && exit 0"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.4",
     "eslint": "^9.39.4",
+    "eslint-plugin-html": "^8.1.4",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^17.6.0",
     "jest": "^30.4.2"
