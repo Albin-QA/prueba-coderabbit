@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies (necesario para Trivy)
-        run: npm install
+        run: npm install 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
@@ -50,6 +50,7 @@ jobs:
           format: 'table'
           severity: 'CRITICAL,HIGH,MEDIUM' 
           vuln-type: 'library' 
+          exit-code: '1'
 
   custom-bot:
     name: PR Automation Bot
