@@ -70,7 +70,7 @@
         const shapes = ['circle', 'square', 'rectangle', 'triangle'];
 
         btnColor.addEventListener('click', () => {
-            randomColor = colors[Math.floor(Math.random() * colors.length)];
+           const randomColor = colors[Math.floor(Math.random() * colors.length)];
             
             if(!shape.classList.contains('triangle')){
                 shape.style.backgroundColor = randomColor;
