@@ -1,9 +1,25 @@
 import js from "@eslint/js";
 import globals from "globals";
 import pluginReact from "eslint-plugin-react";
-import { defineConfig } from "eslint/config";
+import htmlPlugin from "eslint-plugin-html";
 
-export default defineConfig([
-  { files: ["**/*.{js,mjs,cjs,jsx}"], plugins: { js }, extends: ["js/recommended"], languageOptions: { globals: globals.browser } },
-  pluginReact.configs.flat.recommended,
-]);
+export default [
+  js.configs.recommended,
+  pluginReact.configs.flat?.recommended || {},
+  {
+    files: ["**/*.{js,mjs,cjs,jsx,html}"], 
+    plugins: { 
+      html: htmlPlugin 
+    },
+    languageOptions: { 
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.jest
+      }
+    },
+    rules: {
+      "no-undef": "error"
+    }
+  }
+];
