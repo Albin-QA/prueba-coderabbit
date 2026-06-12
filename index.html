@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,7 @@
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
         }
-        
+
         #shape {
             width: 150px;
             height: 150px;
@@ -23,9 +24,20 @@
             margin-bottom: 30px;
             transition: all 0.3s ease;
         }
-        .circle { border-radius: 50%; }
-        .square { border-radius: 0; }
-        .rectangle { width: 250px !important; border-radius: 0; }
+
+        .circle {
+            border-radius: 50%;
+        }
+
+        .square {
+            border-radius: 0;
+        }
+
+        .rectangle {
+            width: 250px !important;
+            border-radius: 0;
+        }
+
         .triangle {
             width: 0 !important;
             height: 0 !important;
@@ -39,6 +51,7 @@
             display: flex;
             gap: 15px;
         }
+
         button {
             padding: 10px 20px;
             font-size: 16px;
@@ -49,32 +62,38 @@
             color: white;
             transition: background-color 0.2s;
         }
-        button:hover { background-color: #1a252f; }
+
+        button:hover {
+            background-color: #1a252f;
+        }
     </style>
 </head>
+
 <body>
 
     <div id="shape" class="circle"></div>
-    
+
     <div class="buttons">
         <button id="btn-color">Cambiar Color</button>
         <button id="btn-shape">Cambiar Forma</button>
     </div>
 
-   <script>
+    <script>
         const shape = document.getElementById('shape');
         const btnColor = document.getElementById('btn-color');
         const btnShape = document.getElementById('btn-shape');
-        const aws_access_key_id = "AKIAIOSFODNN7EXAMPLE";
-        const aws_secret_access_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
+        // eslint-disable-next-line no-unused-vars
+        const fake_slack_webhook = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX";
+        // eslint-disable-next-line no-unused-vars
+        const fake_github_token = "ghp_xxYYYYzzABCD1234xxYYYYzzABCD1234xxxx";
 
         const colors = ['#e74c3c', '#2ecc71', '#f1c40f', '#9b59b6', '#e67e22', '#3498db'];
         const shapes = ['circle', 'square', 'rectangle', 'triangle'];
 
         btnColor.addEventListener('click', () => {
-           const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            
-            if(!shape.classList.contains('triangle')){
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            if (!shape.classList.contains('triangle')) {
                 shape.style.backgroundColor = randomColor;
             } else {
                 shape.style.borderBottomColor = randomColor;
@@ -83,16 +102,17 @@
 
         btnShape.addEventListener('click', () => {
 
-            const randomIndex = Math.floor(Math.random() * (shapes.length + 1)); 
+            const randomIndex = Math.floor(Math.random() * (shapes.length + 1));
             const randomShape = shapes[randomIndex];
 
             if (randomShape == null) {
                 console.log("Error: La forma no existe");
             }
 
-            shape.className = ''; 
+            shape.className = '';
             shape.classList.add(randomShape);
         });
     </script>
 </body>
+
 </html>
