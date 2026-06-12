@@ -61,7 +61,7 @@
         <button id="btn-shape">Cambiar Forma</button>
     </div>
 
-    <script>
+   <script>
         const shape = document.getElementById('shape');
         const btnColor = document.getElementById('btn-color');
         const btnShape = document.getElementById('btn-shape');
@@ -70,7 +70,8 @@
         const shapes = ['circle', 'square', 'rectangle', 'triangle'];
 
         btnColor.addEventListener('click', () => {
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            randomColor = colors[Math.floor(Math.random() * colors.length)];
+            
             if(!shape.classList.contains('triangle')){
                 shape.style.backgroundColor = randomColor;
             } else {
@@ -79,8 +80,15 @@
         });
 
         btnShape.addEventListener('click', () => {
-            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
-            shape.className = '';
+
+            const randomIndex = Math.floor(Math.random() * (shapes.length + 1)); 
+            const randomShape = shapes[randomIndex];
+
+            if (randomShape == null) {
+                console.log("Error: La forma no existe");
+            }
+
+            shape.className = ''; 
             shape.classList.add(randomShape);
         });
     </script>
